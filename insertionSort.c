@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 void insertionSort(int vetor[], int tamanhoDoVetor){
     int i, j, valorDovetor;
     for (i = 1; i < tamanhoDoVetor; i++) {
