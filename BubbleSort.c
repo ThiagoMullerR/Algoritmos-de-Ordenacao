@@ -33,9 +33,11 @@ void printVetor(int vetor[], int tamanhoDoVetor){
     for(int i = 0; i < tamanhoDoVetor; i++){
         printf("%d ", vetor[i]);
     }
+    printf("\n");
 }
 
-void main(){
+
+int main(){
 	clock_t cronometro;
     int tamanhoDoVetor, i, *vetor;
     
@@ -50,15 +52,16 @@ void main(){
         scanf("%d", &vetor[i]);
     }
     
-    printf("\n\n\033[1;31mArray antes da ordenação:\n");
+    printf("\n\033[1;31mArray antes da ordenação:\n");
     printVetor(vetor, tamanhoDoVetor);
     
 	cronometro = clock(); // Inicia o cronometro
     bubbleSort(vetor, tamanhoDoVetor - 1); // "-1" porque o ultimo elemento é um "\0" que indica o final do vetor.
     cronometro = clock() - cronometro; // Finaliza o cronometro
     
-    printf("\n\n\033[0;32mArray depois da ordenação:\n");
+    printf("\n\033[0;32mArray depois da ordenação:\n");
     printVetor(vetor, tamanhoDoVetor);
     
-	printf("\n\n\033[0;37mO vetor ficou: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
+	printf("\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
+    return 0;
 }

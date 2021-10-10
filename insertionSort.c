@@ -25,11 +25,13 @@ void insertionSort(int vetor[], int tamanhoDoVetor){
 }
 
 void printVetor(int vetor[], int tamanhoDoVetor){
-    for (int i = 0; i < tamanhoDoVetor; i++)
+    for (int i = 0; i < tamanhoDoVetor; i++){
         printf("%d ", vetor[i]);
+    }
+    printf("\n");
 }
 
-void main(){
+int main(){
     clock_t cronometro;
     int tamanhoDoVetor, *vetor;
     
@@ -44,15 +46,16 @@ void main(){
         scanf("%d", &vetor[i]);
     }
     
-    printf("\n\n\033[1;31mvetor antes da ordenação:\n");
+    printf("\n\033[1;31mvetor antes da ordenação:\n");
     printVetor(vetor, tamanhoDoVetor);
     
     cronometro = clock(); // Inicia o cronometro
     insertionSort(vetor, tamanhoDoVetor);
     cronometro = clock() - cronometro; // Finaliza o cronometro
     
-    printf("\n\n\033[0;32mvetor depois da ordenação:\n");
+    printf("\n\033[0;32mvetor depois da ordenação:\n");
     printVetor(vetor, tamanhoDoVetor);
     
-    printf("\n\n\033[0;37mO vetor ficou: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
+    printf("\n\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
+    return 0;
 }

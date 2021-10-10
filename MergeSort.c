@@ -46,17 +46,21 @@ void mergeSort(int vetor[], int comeco, int fim){
     }
 }
 
-void main(){
+void printVetor(int vetor[], int tamanhoDoVetor){
+    for(int i = 0; i < tamanhoDoVetor; i++){
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+}
+
+int main(){
     int vetor[] = {1, 2, 7, 4, 5};
     int tamanho = sizeof(vetor)/sizeof(vetor[0]);
-    for(int i=0;i<tamanho;i++){
-        printf("%d ", vetor[i]);
-    }
+    
+    printVetor(vetor, tamanho);
     //printf("\n%d\n", tamanho - tamanho);
-    mergeSort(vetor, tamanho - tamanho, tamanho);
-    printf("\n");
-    for(int i=0;i<tamanho;i++){
-        printf("%d ", vetor[i]);
-    }
+    mergeSort(vetor, 0, tamanho);
+    printVetor(vetor, tamanho);
+    return 0;
 }
 
