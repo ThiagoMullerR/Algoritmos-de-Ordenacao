@@ -1,3 +1,9 @@
+/*
+
+                    Referência:
+    https://pt.wikipedia.org/wiki/Merge_sort#C%C3%B3digo_em_C
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
