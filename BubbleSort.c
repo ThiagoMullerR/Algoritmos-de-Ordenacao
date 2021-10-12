@@ -45,7 +45,7 @@ int main(){
     printf("Insira a quantidade de números dentro do vetor:\n");
     scanf("%d", &tamanhoDoVetor);
     
-    vetor = (int*) malloc(tamanhoDoVetor*sizeof(int));
+    vetor = (int*) malloc(tamanhoDoVetor *sizeof(int));
     
     printf("\nInsira os valores dentro do vetor:\n");
     for(i = 0; i < tamanhoDoVetor; i++){
