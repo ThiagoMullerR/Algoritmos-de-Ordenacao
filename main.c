@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include <time.h>
 #include "main.h"
 
@@ -8,6 +9,7 @@ void printTempo(double cronometro){
 }
 
 int main(){
+    setlocale(LC_ALL, "Portuguese");
     struct vetor v;
     
 	clock_t cronometro;
