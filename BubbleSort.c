@@ -5,10 +5,6 @@
 
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 void troca(int *a, int *b){ 
     int temp = *a; 
     *a = *b; 
@@ -29,39 +25,31 @@ void bubbleSort(int *vetor, int tamanhoDoVetor){
     bubbleSort(vetor, tamanhoDoVetor - 1); 
 } 
 
-void printVetor(int vetor[], int tamanhoDoVetor){
-    for(int i = 0; i < tamanhoDoVetor; i++){
-        printf("%d ", vetor[i]);
-    }
-    printf("\n");
-}
 
 
-int main(){
-	clock_t cronometro;
-    int tamanhoDoVetor, i, *vetor;
+// int main(){
+//     struct vetor v;
     
-    printf("Algorítmo de ordenação\n--- BUBBLE SORT ---\n\n");
-    printf("Insira a quantidade de números dentro do vetor:\n");
-    scanf("%d", &tamanhoDoVetor);
+// 	clock_t cronometro;
+
+//     printf("Algorítmo de ordenação\n--- BUBBLE SORT ---\n\n");
+
+//     qualTamanhoDoVetor(&v.tamanhoDoVetor);
+//     v.vetor = (int*) malloc(v.tamanhoDoVetor *sizeof(int)); // Alocação dinâmica de memória
+//     leDados(v.tamanhoDoVetor, v.vetor);
     
-    vetor = (int*) malloc(tamanhoDoVetor *sizeof(int));
+//     printf("\n\033[1;31mArray antes da ordenação:\n");
+//     printVetor(v.vetor, v.tamanhoDoVetor);
     
-    printf("\nInsira os valores dentro do vetor:\n");
-    for(i = 0; i < tamanhoDoVetor; i++){
-        scanf("%d", &vetor[i]);
-    }
     
-    printf("\n\033[1;31mArray antes da ordenação:\n");
-    printVetor(vetor, tamanhoDoVetor);
+// 	cronometro = clock(); // Inicia o cronometro
+//     bubbleSort(v.vetor, v.tamanhoDoVetor - 1); // "-1" porque o ultimo elemento é um "\0" que indica o final do vetor.
+//     cronometro - cronometro; // Finaliza o cronometro
     
-	cronometro = clock(); // Inicia o cronometro
-    bubbleSort(vetor, tamanhoDoVetor - 1); // "-1" porque o ultimo elemento é um "\0" que indica o final do vetor.
-    cronometro = clock() - cronometro; // Finaliza o cronometro
-    
-    printf("\n\033[0;32mArray depois da ordenação:\n");
-    printVetor(vetor, tamanhoDoVetor);
-    
-	printf("\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
-    return 0;
-}
+//     printf("\n\033[0;32mArray depois da ordenação:\n");
+//     printVetor(v.vetor, v.tamanhoDoVetor);
+
+//     printTempo(cronometro);
+	
+//     return 0;
+// }

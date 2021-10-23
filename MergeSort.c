@@ -6,7 +6,6 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 void merge(int vetor[], int comeco, int meio, int fim) {
     int com1 = comeco, com2 = meio+1, comAux = 0, tam = fim-comeco+1;
@@ -53,39 +52,35 @@ void mergeSort(int vetor[], int comeco, int fim){
     }
 }
 
-void printVetor(int vetor[], int tamanhoDoVetor){
-    for(int i = 0; i <= tamanhoDoVetor; i++){
-        printf("%d ", vetor[i]);
-    }
-    printf("\n");
-}
 
-int main(){
-    clock_t cronometro;
-    int tamanhoDoVetor, i, *vetor;
 
-    printf("Algorítmo de ordenação\n--- MERGE SORT ---\n\n");
-    printf("Insira a quantidade de números dentro do vetor:\n");
-    scanf("%d", &tamanhoDoVetor);
+// int main(){
+//     clock_t cronometro;
+//     int tamanhoDoVetor, i;
+
+//     printf("Algorítmo de ordenação\n--- MERGE SORT ---\n\n");
+//     printf("Insira a quantidade de números dentro do vetor:\n");
+//     scanf("%d", &tamanhoDoVetor);
     
-    vetor = (int*) malloc(tamanhoDoVetor*sizeof(int));
+//     int vetor[tamanhoDoVetor];
+//     //vetor = (int*) malloc(tamanhoDoVetor *sizeof(int));
 
-    printf("\nInsira os valores dentro do vetor:\n");
-    for(i = 0; i < tamanhoDoVetor; i++){
-        scanf("%d", &vetor[i]);
-    }
+//     printf("\nInsira os valores dentro do vetor:\n");
+//     for(i = 0; i < tamanhoDoVetor; i++){
+//         scanf("%d", &vetor[i]);
+//     }
 
-    printf("\n\033[1;31mArray antes da ordenação:\n");
-    printVetor(vetor, tamanhoDoVetor);
+//     printf("\n\033[1;31mArray antes da ordenação:\n");
+//     printVetor(vetor, tamanhoDoVetor);
 
-    cronometro = clock(); // Inicia o cronometro
-    mergeSort(vetor, 0, tamanhoDoVetor);
-    cronometro = clock() - cronometro; // Finaliza o cronometro
+//     cronometro = clock(); // Inicia o cronometro
+//     mergeSort(vetor, 0, tamanhoDoVetor);
+//     cronometro = clock() - cronometro; // Finaliza o cronometro
     
-    printf("\n\033[0;32mArray depois da ordenação:\n");
-    printVetor(vetor, tamanhoDoVetor);
+//     printf("\n\033[0;32mArray depois da ordenação:\n");
+//     printVetor(vetor, tamanhoDoVetor);
     
-	printf("\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
-    return 0;
-}
+// 	printf("\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
+//     return 0;
+// }
 
