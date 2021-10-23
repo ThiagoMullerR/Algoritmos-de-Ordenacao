@@ -35,7 +35,7 @@ int main(){
         exit(1);
     };
 
-    printf("\n\033[1;31mArray antes da ordenação:\n");
+    printf("\n\033[1;31mVetor antes da ordenação:\n");
     printVetor(v.vetor, v.tamanhoDoVetor);
 
     cronometro = clock(); // Inicia o cronometro
@@ -49,7 +49,7 @@ int main(){
     
     cronometro - cronometro; // Finaliza o cronometro
     
-    printf("\n\033[0;32mArray depois da ordenação:\n");
+    printf("\n\033[0;32mVetor depois da ordenação:\n");
     if(escolha == 3){
         // bug do "0" do Merge Sort
         for(int i = 1; i <= v.tamanhoDoVetor; i++){
