@@ -34,17 +34,17 @@ int main(){
         exit(1);
     }
     
-    printf("\nQual algorítmo de ordenação você quer usar?\n\n1) Bubble Sort\n2) Insertion Sort\n3) Merge Sort\n\nDigite: ");
+    printf("\nQual algorítmo de ordenação você deseja usar?\n1) Bubble Sort\n2) Insertion Sort\n3) Merge Sort\n\nDigite: ");
     scanf("%d", &escolha);
 
     if(escolha == 1){
-        printf("\n\n-- BUBBLE SORT --\n\n");
+        printf("\n\n-- BUBBLE SORT --\n");
     } else if(escolha == 2){
-        printf("\n\n-- INSERTION SORT --\n\n");
+        printf("\n\n-- INSERTION SORT --\n");
     } else if(escolha == 3){
-        printf("\n\n-- MERGE SORT --\n\n");
+        printf("\n\n-- MERGE SORT --\n");
     } else {
-        printf("Erro! Opção Inválida!\n");
+        printf("\nErro! Opção Inválida!\n");
         exit(1);
     };
 
