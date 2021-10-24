@@ -1,8 +1,6 @@
 /*
-
                     Referência:
     https://pt.wikipedia.org/wiki/Merge_sort#C%C3%B3digo_em_C
-
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,36 +49,3 @@ void mergeSort(int vetor[], int comeco, int fim){
         merge(vetor, comeco, meio, fim);
     }
 }
-
-
-
-// int main(){
-//     clock_t cronometro;
-//     int tamanhoDoVetor, i;
-
-//     printf("Algorítmo de ordenação\n--- MERGE SORT ---\n\n");
-//     printf("Insira a quantidade de números dentro do vetor:\n");
-//     scanf("%d", &tamanhoDoVetor);
-    
-//     int vetor[tamanhoDoVetor];
-//     //vetor = (int*) malloc(tamanhoDoVetor *sizeof(int));
-
-//     printf("\nInsira os valores dentro do vetor:\n");
-//     for(i = 0; i < tamanhoDoVetor; i++){
-//         scanf("%d", &vetor[i]);
-//     }
-
-//     printf("\n\033[1;31mArray antes da ordenação:\n");
-//     printVetor(vetor, tamanhoDoVetor);
-
-//     cronometro = clock(); // Inicia o cronometro
-//     mergeSort(vetor, 0, tamanhoDoVetor);
-//     cronometro = clock() - cronometro; // Finaliza o cronometro
-    
-//     printf("\n\033[0;32mArray depois da ordenação:\n");
-//     printVetor(vetor, tamanhoDoVetor);
-    
-// 	printf("\n\033[0;37mTempo de processamento da ordenação: %lfms\n", ((double)cronometro)/((CLOCKS_PER_SEC/10000)));
-//     return 0;
-// }
-

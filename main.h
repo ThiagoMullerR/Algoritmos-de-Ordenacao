@@ -1,8 +1,10 @@
 // Vetor
 struct vetor{int tamanhoDoVetor, *vetor;};
 void qualTamanhoDoVetor(int *tamanhoDoVetor);
+void geraAleatorio(int tamanhoDoVetor, int vetor[]);
 void leDados(int tamanhoDoVetor, int vetor[]);
 void printVetor(int vetor[], int tamanhoDoVetor);
+void printMerge(int vetor[], int tamanhoDoVetor);
 
 // Cronômetro (vetor.c)
 void printTempo(double cronometro);
