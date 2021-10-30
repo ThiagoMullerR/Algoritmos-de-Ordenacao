@@ -8,9 +8,12 @@ void qualTamanhoDoVetor(int *tamanhoDoVetor){
 }
 
 void geraAleatorio(int tamanhoDoVetor, int vetor[]){
-    srand(time(0));
+    srand(time(0)); // Função para gerar aleatório com base no tempo para não repetir os valores
     for(int i = 0; i < tamanhoDoVetor; i++){
-        vetor[i] = rand() % 100;
+        // Aqui definimos até qual valor será gerado o aleatório
+        // % 100 (restante da divisao de 100) 
+        // significa que será gerado um valor de 0 até 99 (100 números)
+        vetor[i] = rand() % 100; 
     }
 }
 
@@ -28,6 +31,11 @@ void printVetor(int vetor[], int tamanhoDoVetor){
     printf("\n");
 }
 
+// O print do merge sort precisa ser diferente, pois a função sempre gera um número 0 no final do vetor
+// e este valor é ordenado junto com os outros, ou seja, toda vez que printamos um merge usando o print
+// de cima, é mostrado um valor 0 no início e o ultimo valor não é exibido. 
+// Para corrigir, iniciamos a variável do loop em 1 para pular o primeiro valor e dizemos que o loop só vai 
+// finalizar quando i <= que o tamanhoDoVetor
 void printMerge(int vetor[], int tamanhoDoVetor){
     for(int i = 1; i <= tamanhoDoVetor; i++){
         printf("%d ", vetor[i]);
