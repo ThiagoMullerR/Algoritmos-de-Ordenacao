@@ -114,11 +114,11 @@ int main() {
             break;
         }
 
-        int escolha2;
+        int escolhaCompararVal;
         printf("Você deseja comparar os valores?\n1) Sim\n2) Não\n\nEscolha: ");
-        scanf("%d", &escolha2);
+        scanf("%d", &escolhaCompararVal);
         
-        if (escolha2 == 1) {
+        if (escolhaCompararVal == 1) {
             switch (escolha) {
             case 1:
                 // bubble sort
