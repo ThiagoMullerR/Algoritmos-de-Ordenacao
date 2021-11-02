@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+int limiteCasasAleatorios = 100; // 100 = de 0 a 99.
+
 void qualTamanhoDoVetor(int *tamanhoDoVetor) {
-    printf("Insira a quantidade de números dentro do vetor:\n");
+    printf("\nInsira a quantidade de números dentro do vetor:\n");
     scanf("%d", tamanhoDoVetor);
 }
 
@@ -13,7 +15,7 @@ void geraAleatorio(int tamanhoDoVetor, int vetor[]) {
         // Aqui definimos até qual valor será gerado o aleatório
         // % 100 (restante da divisao de 100) 
         // significa que será gerado um valor de 0 até 99 (100 números)
-        vetor[i] = rand() % 100; 
+        vetor[i] = rand() % limiteCasasAleatorios; 
     }
 }
 
