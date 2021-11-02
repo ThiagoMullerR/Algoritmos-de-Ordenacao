@@ -101,13 +101,13 @@ int main() {
             printTempo(escolha);
             break;
         case 2:
-            executInsertionSort(v.vetor[0], v.tamanhoDoVetor);
-            printVetor(v.vetor[0], v.tamanhoDoVetor);
+            executInsertionSort(v.vetor[1], v.tamanhoDoVetor);
+            printVetor(v.vetor[1], v.tamanhoDoVetor);
             printTempo(escolha);
             break;
         case 3:
-            executMergeSort(v.vetor[0], v.tamanhoDoVetor);
-            printMerge(v.vetor[0], v.tamanhoDoVetor);
+            executMergeSort(v.vetor[2], v.tamanhoDoVetor);
+            printMerge(v.vetor[2], v.tamanhoDoVetor);
             printTempo(escolha);
             break;
         default:
@@ -115,7 +115,7 @@ int main() {
         }
 
         int escolha2;
-        printf("Você deseja comparar os valores?\n1) Sim\n2) Não\nEscolha: ");
+        printf("Você deseja comparar os valores?\n1) Sim\n2) Não\n\nEscolha: ");
         scanf("%d", &escolha2);
         
         if (escolha2 == 1) {
@@ -128,14 +128,14 @@ int main() {
                 break;
             case 2:
                 // insertion sort
-                executBubbleSort(v.vetor[1], v.tamanhoDoVetor);
+                executBubbleSort(v.vetor[0], v.tamanhoDoVetor);
                 executMergeSort(v.vetor[2], v.tamanhoDoVetor);
                 printTempos();
                 break;
             case 3:
                 // merge sort
-                executBubbleSort(v.vetor[1], v.tamanhoDoVetor);
-                executInsertionSort(v.vetor[2], v.tamanhoDoVetor);
+                executBubbleSort(v.vetor[0], v.tamanhoDoVetor);
+                executInsertionSort(v.vetor[1], v.tamanhoDoVetor);
                 printTempos();
                 break;
             default:
@@ -145,7 +145,7 @@ int main() {
             }
         }
 
-        printf("\nVocê deseja usar outro vetor?\n1) Sim\n2) Não\nEscolha: ");
+        printf("\nVocê deseja usar outro vetor?\n1) Sim\n2) Não\n\nEscolha: ");
         scanf(" %d", &acabou);
         acabou--;
     } while (!acabou);
