@@ -7,34 +7,37 @@
 float algoritmos[3];
 
 void printTempo(int escolha){
-    printf("\n\033[0;37mTempo de processamento da ordenação: %.4lfms\n\n", algoritmos[escolha - 1]);
+    printf("\n\033[0;37mTempo de processamento da ordenação: %.5lfms\n\n", algoritmos[escolha - 1]);
 }
 
 void printTempos(){
-    printf("\nTempo de processamento da ordenação Bubble Sort: %.4lfms\n", algoritmos[0]);
-    printf("Tempo de processamento da ordenação Insertion Sort: %.4lfms\n", algoritmos[1]);
-    printf("Tempo de processamento da ordenação Merge Sort: %.4lfms\n", algoritmos[2]);
+    printf("\nTempo de processamento da ordenação Bubble Sort: %.5lfms\n", algoritmos[0]);
+    printf("Tempo de processamento da ordenação Insertion Sort: %.5lfms\n", algoritmos[1]);
+    printf("Tempo de processamento da ordenação Merge Sort: %.5lfms\n", algoritmos[2]);
 }
-void contagemCronometro(int escolha, float tempo){
-    algoritmos[escolha] = ((double)clock() - tempo)/(CLOCKS_PER_SEC/10000);
+void contagemCronometro(int escolha, unsigned long inicio, unsigned long fim){
+    algoritmos[escolha] = (double)(fim - inicio)/(CLOCKS_PER_SEC / 1000);
 }
 
 void executBubbleSort(int vetor[], int tamanhoDoVetor) {
-    clock_t cronometro = clock();
+    clock_t inicioCronometro = clock();
     bubbleSort(vetor, tamanhoDoVetor - 1);
-    contagemCronometro(0, cronometro);
+    clock_t fimCronometro = clock();
+    contagemCronometro(0, inicioCronometro, fimCronometro);
 }
 
 void executInsertionSort(int vetor[], int tamanhoDoVetor) {
-    clock_t cronometro = clock();
+    clock_t inicioCronometro = clock();
     insertionSort(vetor, tamanhoDoVetor);
-    contagemCronometro(1, cronometro);
+    clock_t fimCronometro = clock();
+    contagemCronometro(1, inicioCronometro, fimCronometro);
 }
 
 void executMergeSort(int vetor[], int tamanhoDoVetor) {
-    clock_t cronometro = clock();
+    clock_t inicioCronometro = clock();
     mergeSort(vetor, 0, tamanhoDoVetor);
-    contagemCronometro(2, cronometro);
+    clock_t fimCronometro = clock();
+    contagemCronometro(2, inicioCronometro, fimCronometro);
 }
 
 int main() {
