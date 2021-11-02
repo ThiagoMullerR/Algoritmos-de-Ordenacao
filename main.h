@@ -1,5 +1,5 @@
 // Vetor
-struct vetor{int tamanhoDoVetor, *vetor;};
+struct vetor{int *vetor0, *vetor1, *vetor2, tamanhoDoVetor;};
 typedef struct vetor VETOR;
 void qualTamanhoDoVetor(int *tamanhoDoVetor);
 void geraAleatorio(int tamanhoDoVetor, int vetor[]);

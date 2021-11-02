@@ -1,6 +1,3 @@
-// o vetor ja chega ordenado na hora que ele vai comparar os tempos
-// criei um array do tipo VETOR. precisa passar o array desorganizado como entrada para os 3 VETOR[i] e organizar um por um.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -46,19 +43,22 @@ int main() {
     // Acentuação
     setlocale(LC_ALL, "Portuguese");
 
+    //int tamanhoDoVetor;
     // inicia um conjunto de variáveis essenciais para um vetor (ela é declarada no main.h)
-    VETOR vetor[3];
+    VETOR v;
     //VETOR desordenado, ordenaddo;
     
+    
+
     printf("\n-- Algorítmos de ordenação --\n\n");
     
     //função scanf (fica em vetor.c)
-    qualTamanhoDoVetor(&vetor[1].tamanhoDoVetor);
+    qualTamanhoDoVetor(&v.tamanhoDoVetor);
     
     // Alocação dinâmica de memória
-    for(int i = 0; i < sizeof(vetor)/sizeof(vetor[0]); i++){
-        vetor[i].vetor = (int*) malloc(vetor[i].tamanhoDoVetor *sizeof(int));
-    }
+    v.vetor0 = (int*) malloc(v.tamanhoDoVetor *sizeof(int));
+    v.vetor1 = (int*) malloc(v.tamanhoDoVetor *sizeof(int));
+    v.vetor2 = (int*) malloc(v.tamanhoDoVetor *sizeof(int));
     
 
     // variável usada nas escolhas - tanto nos aleatórios ou específicos quanto em qual algoritmo irá ser usado.
@@ -70,45 +70,53 @@ int main() {
     // executa o comando de gerar Aleatórios ou escolher números específicos
     if(escolha == 1){
         // (função em vetor.c)
-        geraAleatorio(vetor[1].tamanhoDoVetor, vetor[1].vetor);
+        geraAleatorio(v.tamanhoDoVetor, v.vetor0);
     } else if (escolha == 2){
         // (função em vetor.c)
-        leDados(vetor[1].tamanhoDoVetor, vetor[1].vetor);
+        leDados(v.tamanhoDoVetor, v.vetor0);
     } else{
         // Finaliza o programa se digitar algo que não for 1 ou 2
         printf("Erro! Valor inválido!\n");
         exit(1);
     }
-    
+
+
+    //v.vetor2 = v.vetor1 = v.vetor0;
+
+    for(int i = 0; i <=  v.tamanhoDoVetor; i++){
+        v.vetor1[i] = v.vetor0[i];
+    }
+    for(int i = 0; i <=  v.tamanhoDoVetor; i++){
+        v.vetor2[i] = v.vetor1[i];
+    }
+
+
     printf("\nQual algorítmo de ordenação você deseja usar?\n1) Bubble Sort\n2) Insertion Sort\n3) Merge Sort\n\nDigite: ");
     scanf("%d", &escolha);
 
     printf("\n\033[1;31mVetor antes da ordenação:\n");
     // (função em vetor.c)
-    printVetor(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+    printVetor(v.vetor0, v.tamanhoDoVetor);
 
     printf("\n\033[0;32mVetor depois da ordenação:\n");
 
-    //int *valVetor;
-    //valVetor = vetor[1].vetor;
-    //int valTamanho = vetor[1].tamanhoDoVetor;
     switch (escolha) {
     case 1:
         printf("\n\n-- BUBBLE SORT --\n");
-        executBubbleSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-        printVetor(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+        executBubbleSort(v.vetor0, v.tamanhoDoVetor);
+        printVetor(v.vetor0, v.tamanhoDoVetor);
         printTempo(escolha);
         break;
     case 2:
         printf("\n\n-- INSERTION SORT --\n");
-        executInsertionSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-        printVetor(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+        executInsertionSort(v.vetor0, v.tamanhoDoVetor);
+        printVetor(v.vetor0, v.tamanhoDoVetor);
         printTempo(escolha);
         break;
     case 3:
         printf("\n\n-- MERGE SORT --\n");
-        executMergeSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-        printMerge(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+        executMergeSort(v.vetor0, v.tamanhoDoVetor);
+        printMerge(v.vetor0, v.tamanhoDoVetor);
         printTempo(escolha);
         break;
     default:
@@ -116,7 +124,6 @@ int main() {
         exit(1);
         break;
     }
-    
     
     // (função declarada acima do main() )
     int escolha2;
@@ -127,20 +134,20 @@ int main() {
         switch (escolha) {
         case 1:
             // bubble sort
-            executInsertionSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-            executMergeSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+            executInsertionSort(v.vetor1, v.tamanhoDoVetor);
+            executMergeSort(v.vetor2, v.tamanhoDoVetor);
             printTempos();
             break;
         case 2:
             // insertion sort
-            executBubbleSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-            executMergeSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+            executBubbleSort(v.vetor1, v.tamanhoDoVetor);
+            executMergeSort(v.vetor2, v.tamanhoDoVetor);
             printTempos();
             break;
         case 3:
             // merge sort
-            executBubbleSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
-            executInsertionSort(vetor[1].vetor, vetor[1].tamanhoDoVetor);
+            executBubbleSort(v.vetor1, v.tamanhoDoVetor);
+            executInsertionSort(v.vetor2, v.tamanhoDoVetor);
             printTempos();
             break;
         default:
@@ -149,6 +156,5 @@ int main() {
             break;
         }
     }
-	
     return 0;
 }
