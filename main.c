@@ -59,7 +59,6 @@ int main() {
         printf("\nVocê deseja usar números aleatórios ou escolher os valores a serem ordenados?\n1) Aleatórios\n2) Escolher os valores\n\nDigite: ");
         scanf("%d", &escolha);
         
-        // executa o comando de gerar Aleatórios ou escolher números específicos
         switch (escolha){
         case 1:
             geraAleatorio(v.tamanhoDoVetor, v.vetor[0]);
@@ -112,8 +111,6 @@ int main() {
             printTempo(escolha);
             break;
         default:
-            printf("\nErro! Opção Inválida!\n");
-            exit(1);
             break;
         }
 
