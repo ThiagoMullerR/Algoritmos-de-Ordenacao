@@ -1,5 +1,4 @@
 // Vetor
-float algoritmos[3];
 void abertura();
 struct vetor{int *vetor[3], tamanhoDoVetor;};
 typedef struct vetor VETOR;
