@@ -4,6 +4,13 @@
 #include <time.h>
 #include "main.h"
 
+void liberaMem(VETOR* v){
+    // Não está funcionando corretamente
+    for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
+        free(v->vetor[i]);
+    }
+}
+
 int main() {
     // Acentuação
     setlocale(LC_ALL, "Portuguese");
@@ -23,6 +30,9 @@ int main() {
         printf("\nVocê deseja usar outro vetor?\n1) Sim\n2) Não\n\nEscolha: ");
         scanf(" %d", &acabou);
         acabou--;
+
+        liberaMem(&v);
+
     } while (!acabou);
 
     if(acabou == 1){
