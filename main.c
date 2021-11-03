@@ -10,7 +10,7 @@ int main() {
 
     int acabou = 0;
 
-    abertura();
+    abertura(1);
 
     do{
         VETOR v;
