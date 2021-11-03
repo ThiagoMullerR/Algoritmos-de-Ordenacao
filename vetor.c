@@ -3,10 +3,6 @@
 #include <time.h>
 #include "main.h"
 
-void abertura(){
-    printf("\n-- Algorítmos de ordenação --\n");
-}
-
 void qualTamanhoDoVetor(int *tamanhoDoVetor) {
     printf("\nInsira a quantidade de números dentro do vetor:\n");
     scanf("%d", tamanhoDoVetor);
