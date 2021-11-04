@@ -9,6 +9,7 @@ void liberaMem(VETOR* v){
     for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
         free(v->vetor[i]);
     }
+    
 }
 
 int main() {

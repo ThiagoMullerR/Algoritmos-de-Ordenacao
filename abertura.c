@@ -3,8 +3,8 @@
 void abertura(int escolha){
     if(escolha == 1){
         printf("\n\n");
-        printf("     _    _                  ___                       \n");
-        printf("    / \\  | | __ _  ___  _ __/_/ |_ _ __ ___   ___  ___ \n");
+        printf("     _    _                    _                       \n");
+        printf("    / \\  | | __ _  ___  _ ____| |_ _ __ ___   ___  ___ \n");
         printf("   / _ \\ | |/ _` |/ _ \\| '__| | __| '_ ` _ \\ / _ \\/ __|\n");
         printf("  / ___ \\| | (_| | (_) | |  | | |_| | | | | | (_) \\__ \\\n");
         printf(" /_/   \\_\\_|\\__, |\\___/|_|  |_|\\__|_| |_| |_|\\___/|___/\n");
@@ -53,6 +53,6 @@ void abertura(int escolha){
         printf("                   ░                                  ░                               \n");
         printf("\n");
     } else{
-        printf("\n-- Algorítmos de ordenação --\n");
+        printf("\n-- Algoritmos de ordenação --\n");
     }
 }
