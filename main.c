@@ -4,14 +4,6 @@
 #include <time.h>
 #include "main.h"
 
-void liberaMem(VETOR* v){
-    // Não está funcionando corretamente
-    for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
-        free(v->vetor[i]);
-    }
-    
-}
-
 int main() {
     // Acentuação
     setlocale(LC_ALL, "Portuguese");

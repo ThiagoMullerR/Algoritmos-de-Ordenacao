@@ -69,102 +69,107 @@ void executaMergeSort(int vetor[], int tamanhoDoVetor) {
 
 void inicializaVetor(int* escolha, VETOR* v){
 
-        qualTamanhoDoVetor(&v->tamanhoDoVetor);
-        
-        // Alocação dinâmica de memória
-        for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
-            v->vetor[i] = (int*) malloc(v->tamanhoDoVetor *sizeof(int));
-        }
+    qualTamanhoDoVetor(&v->tamanhoDoVetor);
+    
+    // Alocação dinâmica de memória
+    for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
+        v->vetor[i] = (int*) malloc(sizeof(int) * v->tamanhoDoVetor + 1);
+    }
 
-        printf("\nVocê deseja usar números aleatórios ou escolher os valores a serem ordenados?\n1) Aleatórios\n2) Escolher os valores\n\nDigite: ");
-        scanf("%d", escolha);
-        
-        switch (*escolha){
-        case 1:
-            geraAleatorio(v->tamanhoDoVetor, v->vetor[0]);
-            break;
-        case 2:
-            leDados(v->tamanhoDoVetor, v->vetor[0]);
-            break;
-        default:
-            printf("Erro! Valor inválido!\n");
-            exit(1);
-        }
+    printf("\nVocê deseja usar números aleatórios ou escolher os valores a serem ordenados?\n1) Aleatórios\n2) Escolher os valores\n\nDigite: ");
+    scanf("%d", escolha);
+    
+    switch (*escolha){
+    case 1:
+        geraAleatorio(v->tamanhoDoVetor, v->vetor[0]);
+        break;
+    case 2:
+        leDados(v->tamanhoDoVetor, v->vetor[0]);
+        break;
+    default:
+        printf("Erro! Valor inválido!\n");
+        exit(1);
+    }
 
-        // Copia o vetor desordenado para os outros vetores
-        for(int i = 0; i <=  v->tamanhoDoVetor; i++){
-            v->vetor[2][i] = v->vetor[1][i] = v->vetor[0][i];
-        }
+    // Copia o vetor desordenado para os outros vetores
+    for(int i = 0; i <=  v->tamanhoDoVetor; i++){
+        v->vetor[2][i] = v->vetor[1][i] = v->vetor[0][i];
+    }
 }
 
 void organizaVetor(int* escolha, VETOR* v){
     printf("\nQual algorítmo de ordenação você deseja usar?\n1) Bubble Sort\n2) Insertion Sort\n3) Merge Sort\n\nDigite: ");
-        scanf("%d", escolha);
+    scanf("%d", escolha);
 
-        if(*escolha == 1){
-            printf("\n\n-- BUBBLE SORT --\n");
-        } else if(*escolha == 2){
-            printf("\n\n-- INSERTION SORT --\n");
-        } else if(*escolha == 3){
-            printf("\n\n-- MERGE SORT --\n");
-        } else {
-            printf("\nErro! Opção Inválida!\n");
-            exit(1);
-        };
+    if(*escolha == 1){
+        printf("\n\n-- BUBBLE SORT --\n");
+    } else if(*escolha == 2){
+        printf("\n\n-- INSERTION SORT --\n");
+    } else if(*escolha == 3){
+        printf("\n\n-- MERGE SORT --\n");
+    } else {
+        printf("\nErro! Opção Inválida!\n");
+        exit(1);
+    };
 
-        printf("\n\033[1;31mVetor antes da ordenação:\n");
+    printf("\n\033[1;31mVetor antes da ordenação:\n");
+    printVetor(v->vetor[0], v->tamanhoDoVetor);
+
+    printf("\n\033[0;32mVetor depois da ordenação:\n");
+
+    switch (*escolha) {
+    case 1:
+        executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
         printVetor(v->vetor[0], v->tamanhoDoVetor);
-
-        printf("\n\033[0;32mVetor depois da ordenação:\n");
-
-        switch (*escolha) {
-        case 1:
-            executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
-            printVetor(v->vetor[0], v->tamanhoDoVetor);
-            printTempo(*escolha);
-            break;
-        case 2:
-            executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
-            printVetor(v->vetor[1], v->tamanhoDoVetor);
-            printTempo(*escolha);
-            break;
-        case 3:
-            executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
-            printMerge(v->vetor[2], v->tamanhoDoVetor);
-            printTempo(*escolha);
-            break;
-        default:
-            break;
-        }
+        printTempo(*escolha);
+        break;
+    case 2:
+        executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
+        printVetor(v->vetor[1], v->tamanhoDoVetor);
+        printTempo(*escolha);
+        break;
+    case 3:
+        executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
+        printMerge(v->vetor[2], v->tamanhoDoVetor);
+        printTempo(*escolha);
+        break;
+    }
 }
+
 void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v){
     printf("Você deseja comparar os valores?\n1) Sim\n2) Não\n\nEscolha: ");
-        scanf("%d", escolhaCompararVal);
-        
-        if (*escolhaCompararVal == 1) {
-            switch (*escolha) {
-            case 1:
-                // bubble sort
-                executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
-                executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
-                printTempos();
-                break;
-            case 2:
-                // insertion sort
-                executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
-                executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
-                printTempos();
-                break;
-            case 3:
-                // merge sort
-                executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
-                executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
-                printTempos();
-                break;
-            default:
-                printf("\nErro! Opção Inválida!\n");
-                exit(1);
-                break;
-            }
+    scanf("%d", escolhaCompararVal);
+
+    if (*escolhaCompararVal == 1) {
+        switch (*escolha) {
+        case 1:
+            // bubble sort
+            executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
+            executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
+            printTempos();
+            break;
+        case 2:
+            // insertion sort
+            executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
+            executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
+            printTempos();
+            break;
+        case 3:
+            // merge sort
+            executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
+            executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
+            printTempos();
+            break;
+        default:
+            printf("\nErro! Opção Inválida!\n");
+            exit(1);
         }
+    }
+}
+
+// Libera a memória alocada dinâmicamente
+void liberaMem(VETOR* v){
+    for(int i = 0; i < sizeof(v->vetor)/sizeof(v->vetor[0]); i++){
+        free(v->vetor[i]);
+    }
 }

@@ -13,6 +13,7 @@ void executaMergeSort(int vetor[], int tamanhoDoVetor);
 void inicializaVetor(int* escolha, VETOR* v);
 void organizaVetor(int* escolha, VETOR* v);
 void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v);
+void liberaMem(VETOR* v);
 
 // Cronômetro
 void printTempo(int escolha);
