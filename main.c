@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <time.h>
 #include "main.h"
 
 int main() {
@@ -13,18 +12,25 @@ int main() {
     abertura(1);
 
     do{
-        VETOR v;
+        // main.h {
+            VETOR v;
+        // }
+
         int escolha, escolhaCompararVal;
 
-        inicializaVetor(&escolha, &v);
-        organizaVetor(&escolha, &v);
-        comparaVetores(&escolhaCompararVal, &escolha, &v);
-
+        // vetor.c {
+            inicializaVetor(&escolha, &v);
+            organizaVetor(&escolha, &v);
+            comparaVetores(&escolhaCompararVal, &escolha, &v);
+        // }
+        
         printf("\nVocê deseja usar outro vetor?\n1) Sim\n2) Não\n\nEscolha: ");
         scanf(" %d", &acabou);
         acabou--;
 
-        liberaMem(&v);
+        // vetor.c {
+            liberaMem(&v);
+        // }
 
     } while (!acabou);
 

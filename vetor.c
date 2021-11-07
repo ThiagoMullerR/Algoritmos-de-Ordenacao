@@ -3,6 +3,7 @@
 #include <time.h>
 #include "main.h"
 
+// Recebe qual será o tamanho do vetor
 void qualTamanhoDoVetor(int *tamanhoDoVetor) {
     printf("\nInsira a quantidade de números dentro do vetor:\n");
     scanf("%d", tamanhoDoVetor);
@@ -12,13 +13,12 @@ void geraAleatorio(int tamanhoDoVetor, int vetor[]) {
     int limiteCasasAleatorios = 100; // 100 = de 0 a 99.
     srand(time(0)); // Função para gerar aleatório com base no tempo para não repetir os valores
     for (int i = 0; i < tamanhoDoVetor; i++) {
-        // Aqui definimos até qual valor será gerado o aleatório
-        // % 100 (restante da divisao de 100) 
-        // significa que será gerado um valor de 0 até 99 (100 números)
         vetor[i] = rand() % limiteCasasAleatorios; 
     }
 }
 
+// Caso for selecionada a opção de escolher os valores do vetor,
+// a função irá receber os valores que o usuário fornecerá
 void leDados(int tamanhoDoVetor, int vetor[]) {
     printf("\nInsira os valores dentro do vetor:\n");
     for(int i = 0; i < tamanhoDoVetor; i++){
@@ -26,6 +26,7 @@ void leDados(int tamanhoDoVetor, int vetor[]) {
     }
 }
 
+// Print padrão de vetores
 void printVetor(int vetor[], int tamanhoDoVetor){
     for(int i = 0; i < tamanhoDoVetor; i++){
         printf("%d ", vetor[i]);
@@ -47,23 +48,23 @@ void printMerge(int vetor[], int tamanhoDoVetor) {
 
 void executaBubbleSort(int vetor[], int tamanhoDoVetor) {
     clock_t inicioCronometro = clock();
-    bubbleSort(vetor, tamanhoDoVetor - 1);
+    bubbleSort(vetor, tamanhoDoVetor - 1); // (função em BubbleSort.c)
     clock_t fimCronometro = clock();
-    contagemCronometro(0, inicioCronometro, fimCronometro);
+    contagemCronometro(0, inicioCronometro, fimCronometro); // (Função em cronometro.c)
 }
 
 void executaInsertionSort(int vetor[], int tamanhoDoVetor) {
     clock_t inicioCronometro = clock();
-    insertionSort(vetor, tamanhoDoVetor);
+    insertionSort(vetor, tamanhoDoVetor); // (Função em InsertionSort.c)
     clock_t fimCronometro = clock();
-    contagemCronometro(1, inicioCronometro, fimCronometro);
+    contagemCronometro(1, inicioCronometro, fimCronometro); // (Função em cronometro.c)
 }
 
 void executaMergeSort(int vetor[], int tamanhoDoVetor) {
     clock_t inicioCronometro = clock();
-    mergeSort(vetor, 0, tamanhoDoVetor);
+    mergeSort(vetor, 0, tamanhoDoVetor); // (Função em MergeSort.c)
     clock_t fimCronometro = clock();
-    contagemCronometro(2, inicioCronometro, fimCronometro);
+    contagemCronometro(2, inicioCronometro, fimCronometro); // (Função em cronometro.c)
 }
 
 
@@ -91,7 +92,16 @@ void inicializaVetor(int* escolha, VETOR* v){
         exit(1);
     }
 
-    // Copia o vetor desordenado para os outros vetores
+    // Aqui, irá haver uma cópia do vetor desordenado para os outros 2 vetores, por exemplo:
+    // o vetor foi definido para ter o tamanho de 5 valores e esses valores foram gerados aleatóriamente
+    // (Lembrando que começa em [0] e o valor do último [5] é um "\0").
+    // Então, na memória, o primeiro vetor ficará:
+    // vetor[0][5] = {21, 23, 43, 2, 5} 
+    // o vetor[0][5] será copiado para os vetores vetor[1][5] e vetor[2][5]
+    
+    // - O vetor[0] sempre será ordenado pelo BubbleSort
+    // - O vetor[1] sempre será ordenado pelo InsertionSort
+    // - O vetor[2] sempre será ordenado pelo MergeSort
     for(int i = 0; i <=  v->tamanhoDoVetor; i++){
         v->vetor[2][i] = v->vetor[1][i] = v->vetor[0][i];
     }
@@ -117,21 +127,22 @@ void organizaVetor(int* escolha, VETOR* v){
 
     printf("\n\033[0;32mVetor depois da ordenação:\n");
 
+    // Função printTempo localizado em cronometro.c
     switch (*escolha) {
     case 1:
         executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
         printVetor(v->vetor[0], v->tamanhoDoVetor);
-        printTempo(*escolha);
+        printTempo(*escolha); // (Função em cronometro.c)
         break;
     case 2:
         executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
         printVetor(v->vetor[1], v->tamanhoDoVetor);
-        printTempo(*escolha);
+        printTempo(*escolha); // (Função em cronometro.c)
         break;
     case 3:
         executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
         printMerge(v->vetor[2], v->tamanhoDoVetor);
-        printTempo(*escolha);
+        printTempo(*escolha); // (Função em cronometro.c)
         break;
     }
 }
@@ -142,23 +153,26 @@ void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v){
 
     if (*escolhaCompararVal == 1) {
         switch (*escolha) {
+        // Se quiser comparar os valores, será executado a ordenaçao dos outros vetores
+        // sem printar, apenas será salvo os tempos no vetor algoritmos[3] do arquivo cronometro.c
+        // e serão exibidos
         case 1:
-            // bubble sort
+            // Caso tenha escolhido o bubble sort
             executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
             executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
-            printTempos();
+            printTempos(); // (Função em cronometro.c)
             break;
         case 2:
-            // insertion sort
+            // Caso tenha escolhido o insertion sort
             executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
             executaMergeSort(v->vetor[2], v->tamanhoDoVetor);
-            printTempos();
+            printTempos(); // (Função em cronometro.c)
             break;
         case 3:
-            // merge sort
+            // Caso tenha escolhido o merge sort
             executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
             executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
-            printTempos();
+            printTempos(); // (Função em cronometro.c)
             break;
         default:
             printf("\nErro! Opção Inválida!\n");

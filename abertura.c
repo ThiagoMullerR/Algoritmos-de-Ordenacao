@@ -1,3 +1,8 @@
+/*
+                            Arte gerada em:
+    https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+*/
+
 #include <stdio.h>
 
 void abertura(int escolha){
