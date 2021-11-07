@@ -92,13 +92,17 @@ void inicializaVetor(int* escolha, VETOR* v){
         exit(1);
     }
 
-    // Aqui, irá haver uma cópia do vetor desordenado para os outros 2 vetores, por exemplo:
+    // Aqui, irá haver uma cópia do vetor desordenado para os outros 2 vetores. Por exemplo:
     // o vetor foi definido para ter o tamanho de 5 valores e esses valores foram gerados aleatóriamente
     // (Lembrando que começa em [0] e o valor do último [5] é um "\0").
     // Então, na memória, o primeiro vetor ficará:
     // vetor[0][5] = {21, 23, 43, 2, 5} 
     // o vetor[0][5] será copiado para os vetores vetor[1][5] e vetor[2][5]
     
+
+    // A sintaxe é do vetor é mais ou menos assim:
+    // int vetor[0][tamanhoDoVetor];
+
     // - O vetor[0] sempre será ordenado pelo BubbleSort
     // - O vetor[1] sempre será ordenado pelo InsertionSort
     // - O vetor[2] sempre será ordenado pelo MergeSort
@@ -127,7 +131,6 @@ void organizaVetor(int* escolha, VETOR* v){
 
     printf("\n\033[0;32mVetor depois da ordenação:\n");
 
-    // Função printTempo localizado em cronometro.c
     switch (*escolha) {
     case 1:
         executaBubbleSort(v->vetor[0], v->tamanhoDoVetor);
@@ -153,9 +156,9 @@ void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v){
 
     if (*escolhaCompararVal == 1) {
         switch (*escolha) {
-        // Se quiser comparar os valores, será executado a ordenaçao dos outros vetores
-        // sem printar, apenas será salvo os tempos no vetor algoritmos[3] do arquivo cronometro.c
-        // e serão exibidos
+        // Se quiser comparar os valores, será executado a ordenação dos outros vetores
+        // sem os printar, apenas será salvo os tempos no vetor algoritmos[] do arquivo cronometro.c
+        // e serão exibidos os seus tempos
         case 1:
             // Caso tenha escolhido o bubble sort
             executaInsertionSort(v->vetor[1], v->tamanhoDoVetor);
