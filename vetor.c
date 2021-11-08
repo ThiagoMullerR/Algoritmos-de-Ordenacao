@@ -100,7 +100,7 @@ void inicializaVetor(int* escolha, VETOR* v){
     // o vetor[0][5] será copiado para os vetores vetor[1][5] e vetor[2][5]
     
 
-    // A sintaxe é do vetor é mais ou menos assim:
+    // A sintaxe do vetor é mais ou menos assim:
     // int vetor[0][tamanhoDoVetor];
 
     // - O vetor[0] sempre será ordenado pelo BubbleSort
