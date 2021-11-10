@@ -151,12 +151,12 @@ void organizaVetor(int* escolha, VETOR* v){
 }
 
 void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v){
-    printf("Você deseja comparar os valores?\n1) Sim\n2) Não\n\nEscolha: ");
+    printf("Você deseja comparar os tempos de cada algoritmo para o mesmo vetor?\n1) Sim\n2) Não\n\nEscolha: ");
     scanf("%d", escolhaCompararVal);
 
     if (*escolhaCompararVal == 1) {
         switch (*escolha) {
-        // Se quiser comparar os valores, será executado a ordenação dos outros vetores
+        // Se quiser comparar os tempos, será executado a ordenação dos outros vetores
         // sem os printar, apenas será salvo os tempos no vetor algoritmos[] do arquivo cronometro.c
         // e serão exibidos os seus tempos
         case 1:
