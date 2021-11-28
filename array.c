@@ -129,10 +129,12 @@ void organizaarray(int* escolha, ARRAY* v){
         exit(1);
     };
 
-    printf("\n\033[1;31marray antes da ordenação:\n");
+    vermelho();
+    printf("\nArray antes da ordenação:\n");
     printarray(v->array[0], v->tamanhoDoarray);
 
-    printf("\n\033[0;32marray depois da ordenação:\n");
+    verde();
+    printf("\nArray depois da ordenação:\n");
 
     switch (*escolha) {
     case 1:

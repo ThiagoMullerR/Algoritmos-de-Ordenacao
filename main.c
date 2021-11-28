@@ -3,6 +3,18 @@
 #include <locale.h>
 #include "main.h"
 
+void branco(){
+    printf("\033[0;37m");
+}
+
+void vermelho(){
+    printf("\033[1;31m");
+}
+
+void verde(){
+    printf("\033[0;32m");
+}
+
 int main() {
     // Acentuação
     setlocale(LC_ALL, "Portuguese");

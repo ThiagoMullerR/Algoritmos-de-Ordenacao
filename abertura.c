@@ -4,8 +4,10 @@
 */
 
 #include <stdio.h>
+#include "main.h"
 
 void abertura(int escolha){
+    branco();
     if(escolha == 1){
         printf("\n\n");
         printf("     _    _                    _                       \n");

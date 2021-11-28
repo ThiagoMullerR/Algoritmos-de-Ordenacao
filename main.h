@@ -8,3 +8,7 @@ void organizaarray(int* escolha, ARRAY* v);
 void comparaarrays(int* escolhaCompararVal, int* escolha, ARRAY* v);
 
 void liberaMem(ARRAY* v);
+
+void branco();
+void verde();
+void vermelho();

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "cronometro.h"
+#include "main.h"
 
 // - O algoritmos[0] sempre guardará o tempo do Bubble Sort
 // - O algoritmos[1] sempre guardará o tempo do Insertion Sort
@@ -8,7 +9,8 @@
 float algoritmos[3];
 
 void printTempo(int escolha){
-    printf("\n\033[0;37mTempo de processamento da ordenação: %.5lfms\n\n", algoritmos[escolha - 1]);
+    branco();
+    printf("\nTempo de processamento da ordenação: %.5lfms\n\n", algoritmos[escolha - 1]);
 }
 
 void printTempos(){
