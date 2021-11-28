@@ -1,32 +1,10 @@
-// Vetor
 void abertura();
-struct vetor{int *vetor[3], tamanhoDoVetor;};
-typedef struct vetor VETOR;
-void qualTamanhoDoVetor(int *tamanhoDoVetor);
-void geraAleatorio(int tamanhoDoVetor, int vetor[]);
-void leDados(int tamanhoDoVetor, int vetor[]);
-void printVetor(int vetor[], int tamanhoDoVetor);
-void printMerge(int vetor[], int tamanhoDoVetor);
-void executaBubbleSort(int vetor[], int tamanhoDoVetor);
-void executaInsertionSort(int vetor[], int tamanhoDoVetor);
-void executaMergeSort(int vetor[], int tamanhoDoVetor);
-void inicializaVetor(int* escolha, VETOR* v);
-void organizaVetor(int* escolha, VETOR* v);
-void comparaVetores(int* escolhaCompararVal, int* escolha, VETOR* v);
-void liberaMem(VETOR* v);
 
-// Cronômetro
-void printTempo(int escolha);
-void printTempos();
-void contagemCronometro(int escolha, unsigned long inicio, unsigned long fim);
+struct array{int *array[3], tamanhoDoarray;};
+typedef struct array array;
 
-// BubbleSort
-void bubbleSort(int *vetor, int tamanhoDoVetor);
-void troca(int *a, int *b);
+void inicializaarray(int* escolha, array* v);
+void organizaarray(int* escolha, array* v);
+void comparaarrays(int* escolhaCompararVal, int* escolha, array* v);
 
-// Insertion Sort
-void insertionSort(int vetor[], int tamanhoDoVetor);
-
-// Merge Sort
-void merge(int vetor[], int comeco, int meio, int fim);
-void mergeSort(int vetor[], int comeco, int fim);
+void liberaMem(array* v);

@@ -13,22 +13,22 @@ int main() {
 
     do{
         // main.h {
-            VETOR v;
+            array v;
         // }
 
         int escolha, escolhaCompararVal;
 
-        // vetor.c {
-            inicializaVetor(&escolha, &v);
-            organizaVetor(&escolha, &v);
-            comparaVetores(&escolhaCompararVal, &escolha, &v);
+        // array.c {
+            inicializaarray(&escolha, &v);
+            organizaarray(&escolha, &v);
+            comparaarrays(&escolhaCompararVal, &escolha, &v);
         // }
         
-        printf("\nVocê deseja usar outro vetor?\n1) Sim\n2) Não\n\nEscolha: ");
+        printf("\nVocê deseja usar outro array?\n1) Sim\n2) Não\n\nEscolha: ");
         scanf(" %d", &acabou);
         acabou--;
 
-        // vetor.c {
+        // array.c {
             liberaMem(&v);
         // }
 

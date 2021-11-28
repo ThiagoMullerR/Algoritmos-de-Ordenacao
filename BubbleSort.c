@@ -9,16 +9,16 @@ void troca(int *a, int *b){
     *b = temp; 
 }
 
-void bubbleSort(int *vetor, int tamanhoDoVetor){ 
+void bubbleSort(int *array, int tamanhoDoarray){ 
     
-    if (tamanhoDoVetor < 1){
+    if (tamanhoDoarray < 1){
         return;
     }
  
-    for (int i = 0; i < tamanhoDoVetor; i++){
-        if (vetor[i] > vetor[i + 1]){
-            troca(&vetor[i], &vetor[i + 1]);
+    for (int i = 0; i < tamanhoDoarray; i++){
+        if (array[i] > array[i + 1]){
+            troca(&array[i], &array[i + 1]);
         }
     }
-    bubbleSort(vetor, tamanhoDoVetor - 1); 
+    bubbleSort(array, tamanhoDoarray - 1); 
 } 

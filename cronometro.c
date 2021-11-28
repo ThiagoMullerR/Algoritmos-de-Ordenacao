@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-#include "main.h"
+#include "cronometro.h"
 
 
 // - O algoritmos[0] sempre guardará o tempo do Bubble Sort
