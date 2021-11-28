@@ -71,7 +71,7 @@ void executaMergeSort(int array[], int tamanhoDoarray) {
 }
 
 
-void inicializaarray(int* escolha, array* v){
+void inicializaarray(int* escolha, ARRAY* v){
 
     qualTamanhoDoarray(&v->tamanhoDoarray);
     
@@ -114,7 +114,7 @@ void inicializaarray(int* escolha, array* v){
     }
 }
 
-void organizaarray(int* escolha, array* v){
+void organizaarray(int* escolha, ARRAY* v){
     printf("\nQual algorítmo de ordenação você deseja usar?\n1) Bubble Sort\n2) Insertion Sort\n3) Merge Sort\n\nDigite: ");
     scanf("%d", escolha);
 
@@ -153,7 +153,7 @@ void organizaarray(int* escolha, array* v){
     }
 }
 
-void comparaarrays(int* escolhaCompararVal, int* escolha, array* v){
+void comparaarrays(int* escolhaCompararVal, int* escolha, ARRAY* v){
     printf("Você deseja comparar os tempos de cada algoritmo para o mesmo array?\n1) Sim\n2) Não\n\nEscolha: ");
     scanf("%d", escolhaCompararVal);
 
@@ -188,7 +188,7 @@ void comparaarrays(int* escolhaCompararVal, int* escolha, array* v){
 }
 
 // Libera a memória alocada dinâmicamente
-void liberaMem(array* v){
+void liberaMem(ARRAY* v){
     for(int i = 0; i < sizeof(v->array)/sizeof(v->array[0]); i++){
         free(v->array[i]);
     }

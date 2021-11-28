@@ -9,4 +9,4 @@ Há a possibilidade de escolher a quantidade de valores, quais serão os valores
 Também é calculado o tempo de processamento do algoritmo e é possível comparar os tempos de ordenação do mesmo array em cada cada algoritmo.
 
 ## Screenshots
-![Print](https://raw.githubusercontent.com/ThiagoMullerR/Algoritmos-de-Ordenacao/main/Outros/print1.png)
+![Print](https://raw.githubusercontent.com/ThiagoMullerR/Algoritmos-de-Ordenacao/main/Outros/print2.png)

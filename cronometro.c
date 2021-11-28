@@ -2,7 +2,6 @@
 #include <time.h>
 #include "cronometro.h"
 
-
 // - O algoritmos[0] sempre guardará o tempo do Bubble Sort
 // - O algoritmos[1] sempre guardará o tempo do Insertion Sort
 // - O algoritmos[2] sempre guardará o tempo do Merge Sort

@@ -13,7 +13,7 @@ int main() {
 
     do{
         // main.h {
-            array v;
+            ARRAY v;
         // }
 
         int escolha, escolhaCompararVal;
